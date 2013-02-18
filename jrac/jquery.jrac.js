@@ -32,7 +32,8 @@
       'viewport_content_left': 0,
       'viewport_content_top': 0,
       // Submit here a callback function (context is the viewport).
-      'viewport_onload': null
+      'viewport_onload': null,
+      'slider_width': false
     };
 
     // Apply the resize and crop tools to each images
@@ -121,7 +122,7 @@
         // Create the zoom widget which permit to resize the image
         if (!jrac_loaded) {
           var $zoom_widget = $('<div class="jrac_zoom_slider"><div class="ui-slider-handle"></div></div>')
-          .width($viewport.width())
+          .width(settings.slider_width ? settings.slider_width : $viewport.width())
           .slider({
             value: $image.width(),
             min: settings.zoom_min,
