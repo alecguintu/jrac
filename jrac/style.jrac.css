@@ -34,5 +34,9 @@
 }
 
 .jrac_viewport img, .jrac_crop_drag_handler {
-  cursor: pointer;
+  cursor: move;
+}
+
+.jrac_zoom_slider {
+  margin-top: 10px;
 }

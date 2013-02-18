@@ -15,6 +15,7 @@
       // image).
       'crop_x': 0,
       'crop_y': 0,
+      'crop_drag': true,
       'crop_resize': true,
       'crop_aspect_ratio': null,
       'image_width': null,
@@ -169,18 +170,23 @@
             'height': settings.crop_height,
             'left':settings.crop_x+settings.viewport_content_left,
             'top':settings.crop_y+settings.viewport_content_top
-          }).draggable({
-            containment: $viewport,
-            handle: 'div.jrac_crop_drag_handler',
-            drag: function(event, ui) {
-              if (ui.position.left != ui.originalPosition.left) {
-                $viewport.observator.notify('jrac_crop_x', $viewport.observator.crop_position_x());
-              }
-              if (ui.position.top != ui.originalPosition.top) {
-                $viewport.observator.notify('jrac_crop_y', $viewport.observator.crop_position_y());
-              }
-            }
           });
+
+          if (settings.crop_drag) {
+            $crop.draggable({
+              containment: $viewport,
+              handle: 'div.jrac_crop_drag_handler',
+              drag: function(event, ui) {
+                if (ui.position.left != ui.originalPosition.left) {
+                  $viewport.observator.notify('jrac_crop_x', $viewport.observator.crop_position_x());
+                }
+                if (ui.position.top != ui.originalPosition.top) {
+                  $viewport.observator.notify('jrac_crop_y', $viewport.observator.crop_position_y());
+                }
+              }
+            });
+          }
+
           if (settings.crop_resize) {
             $crop.resizable({
               containment: $viewport,
