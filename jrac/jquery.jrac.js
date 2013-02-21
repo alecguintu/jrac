@@ -33,7 +33,8 @@
       'viewport_content_top': 0,
       // Submit here a callback function (context is the viewport).
       'viewport_onload': null,
-      'slider_width': false
+      'slider_width': false,
+      'display_slider_images': false
     };
 
     // Apply the resize and crop tools to each images
@@ -141,8 +142,12 @@
               $viewport.observator.notify('jrac_image_width', ui.value);
             }
           });
+
+          if (settings.display_slider_images) {
+            $zoom_widget.prepend('<i class="jrac_zoom_out">').append('<i class="jrac_zoom_in">');
+          }
           $container.append($zoom_widget);
-        
+
           // Make the viewport resizeable
           if (settings.viewport_resize) {
             $viewport.resizable({

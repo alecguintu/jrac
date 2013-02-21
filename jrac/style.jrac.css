@@ -41,3 +41,19 @@
   margin: 10px auto 0px;
   
 }
+
+.jrac_zoom_out {
+  background: url('images/zoom_out.png') no-repeat;
+  height: 14px;
+  width: 16px;
+  margin: -4px 0 0 -25px;
+  display: block;
+}
+
+.jrac_zoom_in {
+  background: url('images/zoom_in.png') no-repeat;  
+  height: 18px;
+  width: 21px;
+  margin: -15px -30px 0 0;
+  float:right;
+}
